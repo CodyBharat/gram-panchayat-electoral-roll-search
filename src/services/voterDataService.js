@@ -15,8 +15,9 @@ export async function fetchElectoralRoll(forceRefresh = false) {
   if (!forceRefresh && clientCache) {
     return clientCache;
   }
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const endpoint = forceRefresh ? `${BACKEND_URL}/api/voters?refresh=true` : `${BACKEND_URL}/api/voters`;
 
-  const endpoint = forceRefresh ? "/api/voters?refresh=true" : "/api/voters";
 
   let response;
   try {
