@@ -7,7 +7,10 @@ import ErrorBanner from "./components/ErrorBanner.jsx";
 import Footer from "./components/Footer.jsx";
 import { fetchElectoralRoll, clearClientCache } from "./services/voterDataService.js";
 import { filterVoterRecords } from "./utils/searchUtils.js";
+<<<<<<< HEAD
 import ScrollToTopBottom from "./components/ScrollToTopBottom.jsx";
+=======
+>>>>>>> 00be11f (Update siteConfig)
 import {
   DEFAULT_LANGUAGE,
   RESULTS_PER_PAGE,
@@ -30,6 +33,10 @@ export default function App() {
     relationshipTypes: []
   });
 
+<<<<<<< HEAD
+=======
+  // Splash screen timer
+>>>>>>> 00be11f (Update siteConfig)
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
@@ -38,12 +45,24 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
+<<<<<<< HEAD
+=======
+  // Search and filter states
+>>>>>>> 00be11f (Update siteConfig)
   const [query, setQuery] = useState("");
   const [searchScope, setSearchScope] = useState("ALL");
   const [selectedWard, setSelectedWard] = useState("ALL");
   const [selectedGender, setSelectedGender] = useState("ALL");
   const [selectedRelationship, setSelectedRelationship] = useState("ALL");
+<<<<<<< HEAD
   const [visibleCount, setVisibleCount] = useState(RESULTS_PER_PAGE);
+=======
+
+  // Pagination state (Load More)
+  const [visibleCount, setVisibleCount] = useState(RESULTS_PER_PAGE);
+
+  // Background image validation state
+>>>>>>> 00be11f (Update siteConfig)
   const [bgValid, setBgValid] = useState(false);
 
   useEffect(() => {
@@ -99,7 +118,10 @@ export default function App() {
       relationshipType: selectedRelationship,
       voterIdEnabled: rollData.voterIdEnabled
     });
+<<<<<<< HEAD
     /* console.log(filteredRecords);*/
+=======
+>>>>>>> 00be11f (Update siteConfig)
   }, [
     rollData.records,
     rollData.voterIdEnabled,
@@ -142,10 +164,21 @@ export default function App() {
       lang={language}
     >
       <div className="app-backdrop-overlay">
+<<<<<<< HEAD
         <Header language={language} onLanguageChange={setLanguage} />
         <CandidateBanner language={language} />
 
         <main className="main-content container">
+=======
+        {/* 1. Website Header with Language Switch */}
+        <Header language={language} onLanguageChange={setLanguage} />
+
+        {/* 2. Static Candidate Publicity Banner (Below Header, Above Search) */}
+        <CandidateBanner language={language} />
+
+        <main className="main-content container">
+          {/* Sample Data Mode Notice Banner */}
+>>>>>>> 00be11f (Update siteConfig)
           {!loading && !error && rollData.isSampleData && (
             <div className="sample-mode-banner" role="status">
               <div className="sample-mode-badge">{t.sampleModeBadge}</div>
@@ -153,6 +186,10 @@ export default function App() {
             </div>
           )}
 
+<<<<<<< HEAD
+=======
+          {/* 3. Search Box, Voice Search Button, and Filter Controls */}
+>>>>>>> 00be11f (Update siteConfig)
           <SearchAndFilters
             language={language}
             query={query}
@@ -172,6 +209,10 @@ export default function App() {
             onClearAll={handleClearAllFilters}
           />
 
+<<<<<<< HEAD
+=======
+          {/* 4. Loading State */}
+>>>>>>> 00be11f (Update siteConfig)
           {loading && (
             <div className="status-card loading-state" role="status" aria-live="polite">
               <div className="spinner" aria-hidden="true" />
@@ -179,6 +220,10 @@ export default function App() {
             </div>
           )}
 
+<<<<<<< HEAD
+=======
+          {/* 5. Error State */}
+>>>>>>> 00be11f (Update siteConfig)
           {!loading && error && (
             <ErrorBanner
               error={error}
@@ -187,6 +232,10 @@ export default function App() {
             />
           )}
 
+<<<<<<< HEAD
+=======
+          {/* 6. Results Summary & Individual Vertical Voter Cards */}
+>>>>>>> 00be11f (Update siteConfig)
           {!loading && !error && (
             <section className="results-section" aria-live="polite">
               <div className="results-summary-bar">
@@ -196,8 +245,12 @@ export default function App() {
                 </div>
                 {filteredRecords.length > 0 && (
                   <div className="results-showing-range">
+<<<<<<< HEAD
                     {t.showingCountLabel} <strong>{visibleRecords.length}</strong>
                     {""}
+=======
+                    {t.showingCountLabel} <strong>{visibleRecords.length}</strong>{" "}
+>>>>>>> 00be11f (Update siteConfig)
                     {t.ofLabel} <strong>{filteredRecords.length}</strong>
                   </div>
                 )}
@@ -218,7 +271,10 @@ export default function App() {
               ) : (
                 <>
                   <div className="voter-cards-grid">
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 00be11f (Update siteConfig)
                     {visibleRecords.map((record) => (
                       <VoterCard
                         key={record.id}
@@ -248,10 +304,16 @@ export default function App() {
           )}
         </main>
 
+<<<<<<< HEAD
         
         <Footer language={language} />
       </div>
       <ScrollToTopBottom />
+=======
+        {/* 7. Footer */}
+        <Footer language={language} />
+      </div>
+>>>>>>> 00be11f (Update siteConfig)
     </div>
   );
 }

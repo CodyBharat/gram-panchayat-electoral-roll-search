@@ -110,7 +110,11 @@ export function parseCsvString(csvText = "") {
  * Validates raw rows (Row 1 = headers, Row 2+ = voter records) and transforms
  * them into normalized voter objects.
  */
+<<<<<<< HEAD
 export function processRawSheetRows(rawRows, allowVoterId = true, sourceMode = "SAMPLE") {
+=======
+export function processRawSheetRows(rawRows, allowVoterId = false, sourceMode = "SAMPLE") {
+>>>>>>> 00be11f (Update siteConfig)
   if (!rawRows || !Array.isArray(rawRows) || rawRows.length === 0) {
     throw new DataSourceError(
       "EMPTY_SPREADSHEET",
@@ -125,7 +129,10 @@ export function processRawSheetRows(rawRows, allowVoterId = true, sourceMode = "
   }
 
   const rawHeaders = rawRows[0];
+<<<<<<< HEAD
   console.log(rawHeaders);
+=======
+>>>>>>> 00be11f (Update siteConfig)
   const headerResolution = resolveHeaderMap(rawHeaders);
 
   if (!headerResolution.isValid) {
@@ -463,6 +470,9 @@ export function clearElectoralRollCache() {
   cachedPayload = null;
   cacheTimestamp = 0;
 }
+<<<<<<< HEAD
 
 // Automatically clear the cache upon module load/restart to prevent stale data issues
 clearElectoralRollCache();
+=======
+>>>>>>> 00be11f (Update siteConfig)

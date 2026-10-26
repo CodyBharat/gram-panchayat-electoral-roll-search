@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { TRANSLATIONS } from "../config/translations.js";
 import VoiceSearchButton from "./VoiceSearchButton.jsx";
 
@@ -22,11 +22,6 @@ export default function SearchAndFilters({
 }) {
   const t = TRANSLATIONS[language] || TRANSLATIONS.hi;
   const [voiceStatus, setVoiceStatus] = useState(null);
-  const [searchTerm, setSearchTerm] = useState(query);
-
-  useEffect(() => {
-    setSearchTerm(query);
-  }, [query]);
 
   const hasActiveFilters =
     Boolean(query.trim()) ||
@@ -37,12 +32,7 @@ export default function SearchAndFilters({
 
   const handleClear = () => {
     setVoiceStatus(null);
-    setSearchTerm("");
     onClearAll();
-  };
-
-  const handleSearch = () => {
-    onQueryChange(searchTerm);
   };
 
   return (
@@ -52,6 +42,7 @@ export default function SearchAndFilters({
           {t.searchSectionTitle}
         </h2>
 
+        {/* Primary Search Bar + Voice Microphone Button */}
         <div className="search-input-group">
           <label htmlFor="voter-search-input" className="field-label">
             {t.searchInputLabel}
@@ -62,30 +53,17 @@ export default function SearchAndFilters({
                 id="voter-search-input"
                 type="search"
                 className="search-text-input"
-                value={searchTerm}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  setSearchTerm(value);
-                  if (value === "") {
-                    onQueryChange("");
-                  }
-                }}
+                value={query}
+                onChange={(e) => onQueryChange(e.target.value)}
                 placeholder={t.searchInputPlaceholder}
                 autoComplete="off"
               />
             </div>
             <VoiceSearchButton
               language={language}
-              onSpeechResult={(spokenText) => {
-                setSearchTerm(spokenText);
-                onQueryChange(spokenText);
-              }}
+              onSpeechResult={(spokenText) => onQueryChange(spokenText)}
               onVoiceStatusChange={setVoiceStatus}
             />
-            
-            <button className="voice-search-btn" onClick={handleSearch}>
-              🔍
-            </button>
           </div>
           <p className="search-helper-text">{t.searchHelperText}</p>
           <p className="voice-helper-note">{t.voiceNote}</p>
@@ -103,7 +81,9 @@ export default function SearchAndFilters({
           )}
         </div>
 
+        {/* Filter Controls Grid: Ward Number, Search Scope, Gender, Relationship Type */}
         <div className="filters-grid">
+          {/* Ward Filter */}
           <div className="filter-item">
             <label htmlFor="ward-filter-select" className="field-label">
               {t.wardFilterLabel}
@@ -123,6 +103,7 @@ export default function SearchAndFilters({
             </select>
           </div>
 
+          {/* Search Scope Filter */}
           <div className="filter-item">
             <label htmlFor="scope-filter-select" className="field-label">
               {t.searchFieldLabel}
@@ -143,6 +124,7 @@ export default function SearchAndFilters({
             </select>
           </div>
 
+          {/* Gender Optional Filter */}
           <div className="filter-item">
             <label htmlFor="gender-filter-select" className="field-label">
               {t.genderFilterLabel}
@@ -162,6 +144,7 @@ export default function SearchAndFilters({
             </select>
           </div>
 
+          {/* Relationship Optional Filter */}
           <div className="filter-item">
             <label htmlFor="relationship-filter-select" className="field-label">
               {t.relationshipFilterLabel}
@@ -182,6 +165,7 @@ export default function SearchAndFilters({
           </div>
         </div>
 
+        {/* Action Row: Clear All Filters */}
         <div className="filters-actions-row">
           <button
             type="button"
