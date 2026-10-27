@@ -8,9 +8,15 @@ import Footer from "./components/Footer.jsx";
 import { fetchElectoralRoll, clearClientCache } from "./services/voterDataService.js";
 import { filterVoterRecords } from "./utils/searchUtils.js";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import ScrollToTopBottom from "./components/ScrollToTopBottom.jsx";
 =======
 >>>>>>> 00be11f (Update siteConfig)
+=======
+=======
+import ScrollToTopBottom from "./components/ScrollToTopBottom.jsx";
+>>>>>>> 7d45822 (Initial commit)
+>>>>>>> 6147ddb (Initial commit)
 import {
   DEFAULT_LANGUAGE,
   RESULTS_PER_PAGE,
@@ -34,9 +40,15 @@ export default function App() {
   });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   // Splash screen timer
 >>>>>>> 00be11f (Update siteConfig)
+=======
+  // Splash screen timer
+=======
+>>>>>>> 7d45822 (Initial commit)
+>>>>>>> 6147ddb (Initial commit)
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
@@ -46,23 +58,38 @@ export default function App() {
   }, []);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   // Search and filter states
 >>>>>>> 00be11f (Update siteConfig)
+=======
+  // Search and filter states
+=======
+>>>>>>> 7d45822 (Initial commit)
+>>>>>>> 6147ddb (Initial commit)
   const [query, setQuery] = useState("");
   const [searchScope, setSearchScope] = useState("ALL");
   const [selectedWard, setSelectedWard] = useState("ALL");
   const [selectedGender, setSelectedGender] = useState("ALL");
   const [selectedRelationship, setSelectedRelationship] = useState("ALL");
 <<<<<<< HEAD
+<<<<<<< HEAD
   const [visibleCount, setVisibleCount] = useState(RESULTS_PER_PAGE);
 =======
+=======
+>>>>>>> 6147ddb (Initial commit)
 
   // Pagination state (Load More)
   const [visibleCount, setVisibleCount] = useState(RESULTS_PER_PAGE);
 
   // Background image validation state
+<<<<<<< HEAD
 >>>>>>> 00be11f (Update siteConfig)
+=======
+=======
+  const [visibleCount, setVisibleCount] = useState(RESULTS_PER_PAGE);
+>>>>>>> 7d45822 (Initial commit)
+>>>>>>> 6147ddb (Initial commit)
   const [bgValid, setBgValid] = useState(false);
 
   useEffect(() => {
@@ -165,11 +192,14 @@ export default function App() {
     >
       <div className="app-backdrop-overlay">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Header language={language} onLanguageChange={setLanguage} />
         <CandidateBanner language={language} />
 
         <main className="main-content container">
 =======
+=======
+>>>>>>> 6147ddb (Initial commit)
         {/* 1. Website Header with Language Switch */}
         <Header language={language} onLanguageChange={setLanguage} />
 
@@ -178,7 +208,16 @@ export default function App() {
 
         <main className="main-content container">
           {/* Sample Data Mode Notice Banner */}
+<<<<<<< HEAD
 >>>>>>> 00be11f (Update siteConfig)
+=======
+=======
+        <Header language={language} onLanguageChange={setLanguage} />
+        <CandidateBanner language={language} />
+
+        <main className="main-content container">
+>>>>>>> 7d45822 (Initial commit)
+>>>>>>> 6147ddb (Initial commit)
           {!loading && !error && rollData.isSampleData && (
             <div className="sample-mode-banner" role="status">
               <div className="sample-mode-badge">{t.sampleModeBadge}</div>
@@ -187,9 +226,15 @@ export default function App() {
           )}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
           {/* 3. Search Box, Voice Search Button, and Filter Controls */}
 >>>>>>> 00be11f (Update siteConfig)
+=======
+          {/* 3. Search Box, Voice Search Button, and Filter Controls */}
+=======
+>>>>>>> 7d45822 (Initial commit)
+>>>>>>> 6147ddb (Initial commit)
           <SearchAndFilters
             language={language}
             query={query}
@@ -210,9 +255,15 @@ export default function App() {
           />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
           {/* 4. Loading State */}
 >>>>>>> 00be11f (Update siteConfig)
+=======
+          {/* 4. Loading State */}
+=======
+>>>>>>> 7d45822 (Initial commit)
+>>>>>>> 6147ddb (Initial commit)
           {loading && (
             <div className="status-card loading-state" role="status" aria-live="polite">
               <div className="spinner" aria-hidden="true" />
@@ -221,9 +272,15 @@ export default function App() {
           )}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
           {/* 5. Error State */}
 >>>>>>> 00be11f (Update siteConfig)
+=======
+          {/* 5. Error State */}
+=======
+>>>>>>> 7d45822 (Initial commit)
+>>>>>>> 6147ddb (Initial commit)
           {!loading && error && (
             <ErrorBanner
               error={error}
@@ -233,9 +290,15 @@ export default function App() {
           )}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
           {/* 6. Results Summary & Individual Vertical Voter Cards */}
 >>>>>>> 00be11f (Update siteConfig)
+=======
+          {/* 6. Results Summary & Individual Vertical Voter Cards */}
+=======
+>>>>>>> 7d45822 (Initial commit)
+>>>>>>> 6147ddb (Initial commit)
           {!loading && !error && (
             <section className="results-section" aria-live="polite">
               <div className="results-summary-bar">
@@ -246,11 +309,19 @@ export default function App() {
                 {filteredRecords.length > 0 && (
                   <div className="results-showing-range">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     {t.showingCountLabel} <strong>{visibleRecords.length}</strong>
                     {""}
 =======
                     {t.showingCountLabel} <strong>{visibleRecords.length}</strong>{" "}
 >>>>>>> 00be11f (Update siteConfig)
+=======
+                    {t.showingCountLabel} <strong>{visibleRecords.length}</strong>{" "}
+=======
+                    {t.showingCountLabel} <strong>{visibleRecords.length}</strong>
+                    {""}
+>>>>>>> 7d45822 (Initial commit)
+>>>>>>> 6147ddb (Initial commit)
                     {t.ofLabel} <strong>{filteredRecords.length}</strong>
                   </div>
                 )}
@@ -305,6 +376,7 @@ export default function App() {
         </main>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         
         <Footer language={language} />
       </div>
@@ -314,6 +386,17 @@ export default function App() {
         <Footer language={language} />
       </div>
 >>>>>>> 00be11f (Update siteConfig)
+=======
+        {/* 7. Footer */}
+        <Footer language={language} />
+      </div>
+=======
+        
+        <Footer language={language} />
+      </div>
+      <ScrollToTopBottom />
+>>>>>>> 7d45822 (Initial commit)
+>>>>>>> 6147ddb (Initial commit)
     </div>
   );
 }

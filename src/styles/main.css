@@ -777,6 +777,7 @@ body {
   border-radius: 12px;
 }
 <<<<<<< HEAD
+=======
 
 .scroll-buttons-container {
   position: fixed;
@@ -808,5 +809,4 @@ body {
 .scroll-btn:hover {
   background-color: #0b5ed7;
 }
-=======
->>>>>>> 00be11f (Update siteConfig)
+>>>>>>> 7d45822 (Initial commit)
