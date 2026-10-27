@@ -15,7 +15,7 @@ export async function fetchElectoralRoll(forceRefresh = false) {
   if (!forceRefresh && clientCache) {
     return clientCache;
   }
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const BACKEND_URL = https://gram-panchayat-electoral-roll-search.onrender.com;
 const endpoint = forceRefresh ? `${BACKEND_URL}/api/voters?refresh=true` : `${BACKEND_URL}/api/voters`;
 
 
