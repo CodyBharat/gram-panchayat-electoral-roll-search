@@ -1,0 +1,31 @@
+{
+  "name": "gram-panchayat-electoral-roll-search",
+  "version": "1.0.0",
+  "description": "Gram Panchayat Electoral Roll Search Website with secure Google Sheets API backend and React frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "node --watch backend/server.js",
+    "dev:client": "vite",
+    "build": "vite build",
+    "start": "node backend/server.js",
+    "test": "node tests/runTests.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "googleapis": "^140.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
+    "vite": "^5.3.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
