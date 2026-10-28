@@ -24,11 +24,8 @@ export default function VoterCard({ record, language, voterIdEnabled }) {
     { key: "serialNumber", label: f.serialNumber, value: displayValue(record.serialNumber), highlight: true }
   ];
 
-  // Include Voter ID only if authorized and available on the record
-      console.log("Keys:", Object.keys(record), "Data:", JSON.stringify(record));
-
+  // Include Voter ID in the fields list only if available on the record
   if (record.voterId) {
-
     rows.push({
       key: "voterId",
       label: f.voterId,
@@ -60,6 +57,11 @@ export default function VoterCard({ record, language, voterIdEnabled }) {
         <span className="voter-card-serial-pill">
           {f.serialNumber}: <strong>{displayValue(record.serialNumber)}</strong>
         </span>
+        {record.voterId && (
+          <span className="voter-card-serial-pill">
+            {f.voterId}: <strong>{displayValue(record.voterId)}</strong>
+          </span>
+        )}
       </div>
 
       <dl className="voter-card-fields">

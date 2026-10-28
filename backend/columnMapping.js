@@ -46,7 +46,7 @@ export const COLUMN_MAPPING = {
     ]
   },
   voterId: {
-    required: false,
+    required: true,
     label: "Voter ID / ID Number / मतदाता पहचान पत्र संख्या",
     acceptedHeaders: [
       "Voter ID",
@@ -214,7 +214,7 @@ export function resolveHeaderMap(rawHeaders = []) {
  * using the resolved header map. Handles missing optional fields cleanly without
  * shifting column values or combining records.
  */
-export function mapRowToRecord(row = [], fieldToIndex = {}, rowIndex = 0, allowVoterId = false) {
+export function mapRowToRecord(row = [], fieldToIndex = {}, rowIndex = 0, allowVoterId = true) {
   const getCell = (fieldKey) => {
     const colIdx = fieldToIndex[fieldKey];
     if (colIdx === undefined || colIdx < 0 || colIdx >= row.length) {
@@ -249,12 +249,8 @@ export function mapRowToRecord(row = [], fieldToIndex = {}, rowIndex = 0, allowV
   };
 
   // Privacy control: Only include voterId in the object sent to the browser if explicitly authorized
-  if (allowVoterId) {
-    const voterIdVal = getCell("voterId");
-    if (voterIdVal) {
-      record.voterId = voterIdVal;
-    }
-  }
+  record.voterId = getCell("voterId");
+
 
   return record;
 }

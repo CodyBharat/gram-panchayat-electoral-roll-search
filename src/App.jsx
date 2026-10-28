@@ -99,6 +99,7 @@ export default function App() {
       relationshipType: selectedRelationship,
       voterIdEnabled: rollData.voterIdEnabled
     });
+    /* console.log(filteredRecords);*/
   }, [
     rollData.records,
     rollData.voterIdEnabled,
@@ -217,6 +218,7 @@ export default function App() {
               ) : (
                 <>
                   <div className="voter-cards-grid">
+                
                     {visibleRecords.map((record) => (
                       <VoterCard
                         key={record.id}
