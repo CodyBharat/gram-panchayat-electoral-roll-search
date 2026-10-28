@@ -8,6 +8,7 @@ import Footer from "./components/Footer.jsx";
 import { fetchElectoralRoll, clearClientCache } from "./services/voterDataService.js";
 import { filterVoterRecords } from "./utils/searchUtils.js";
 import ScrollToTopBottom from "./components/ScrollToTopBottom.jsx";
+import { Analytics } from '@vercel/analytics/react';
 
 import {
   DEFAULT_LANGUAGE,
@@ -264,6 +265,7 @@ export default function App() {
         <Footer language={language} />
       </div>
       <ScrollToTopBottom />
+      <Analytics />
     </div>
   );
 }
